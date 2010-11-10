@@ -84,13 +84,14 @@ class Output:
 
 
 if __name__=="__main__":
-    from plugins import romeryto, google
+    from plugins import romeryto, google, tuite
     import properties_manager
 
     properties = properties_manager.get_properties()
     bot = Bot(properties)
     bot.registerPlugin(romeryto.Romeryto())
     bot.registerPlugin(google.Google())
+    bot.registerPlugin(tuite.Tuite())
     bot += Debugger()
 
     #bot = Bot()
