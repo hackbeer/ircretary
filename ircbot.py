@@ -66,10 +66,11 @@ class Bot(Component):
             tokens = msg.split(' ')
             name = tokens[0][1:]
             parameters['msg'] = ' '.join(tokens[1:])
-            plugins = self._cmd_plugins[name]
-            for p in plugins:
-                f = getattr(p, name)
-                f(parameters)
+            if self._cmd_plugins.has_key(name):
+		        plugins = self._cmd_plugins[name]
+		        for p in plugins:
+		            f = getattr(p, name)
+		            f(parameters)
 
 class Output:
     def __init__(self, bot, channel):
